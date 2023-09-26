@@ -1,13 +1,20 @@
 package com.Pageobjects;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
+import java.util.List;
+
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.base.Testbase;
 
-public class Wishlist_Functionality<JavascriptExecutor, Actions> extends Testbase {
+public class Wishlist_Functionality extends Testbase {
 	
 	
 	@FindBy(xpath=" (//span[text()='Books'])[1]")
@@ -18,6 +25,11 @@ public class Wishlist_Functionality<JavascriptExecutor, Actions> extends Testbas
 	WebElement book;
 	@FindBy(xpath="//button[@class='btn __text-18px text-danger'] ")
 	WebElement wishlist;
+	@FindBy (xpath="//i[@class='czi-close-circle']")
+	WebElement remove;
+	@FindBy(xpath="//div[text()='Product has been remove from wishlist!']")
+	WebElement msg;
+	
 	
 	@FindBy(xpath="//span[@class='carousel-control-next-icon']")
 	WebElement sidearrow;
@@ -35,6 +47,20 @@ public class Wishlist_Functionality<JavascriptExecutor, Actions> extends Testbas
 	
 	@FindBy(xpath="(//a[@href='http://e-quarz.com/product/esd-safe-pcb-magazine-rack-ByUIpG'])[1]")
 	WebElement homeproduct;
+	@FindBy(xpath="//a[@class='navbar-tool-icon-box bg-secondary dropdown-toggle']")
+	WebElement icon;
+	@FindBy(id="set-wish-list")
+	List<WebElement> wishitem;
+	@FindBy(xpath = "//span[@class='countWishlist']")
+	WebElement wishcount;
+	@FindBy(xpath = " //img[@class='d-block footer_banner_img __inline-63'] ")
+	WebElement footban;
+	
+	@FindBy(xpath = "//a[@href='http://e-quarz.com/product/aurelia-womens-cotton-kurta-cWdeUS']")
+	WebElement prdt;
+	@FindBy(xpath = "//button[@class='buy_btn']")
+	WebElement dealbuy;
+	
 	
 	public Wishlist_Functionality (WebDriver driver) {
 		
@@ -42,29 +68,73 @@ public class Wishlist_Functionality<JavascriptExecutor, Actions> extends Testbas
 	}
 	public void categorylist () {
 		
-		Actions act = new Actions(driver);
+	   Actions act =new Actions(driver);
 		act.moveToElement(category).build().perform();
+		
 		subcat.click();
 		book.click();
 		wishlist.click();
+		
+		remove.click();
+		String print=msg.getText();
+		assertEquals("Product has been remove from wishlist!",print);
 	}
 	public void bannerlist() {
 		sidearrow.click();
 		banner.click();
 		dress.click();
 		wishlist.click();
+		remove.click();	
+		String print=msg.getText();
+		assertEquals("Product has been remove from wishlist!",print);		
+		
+
 	}
 	public void searchlist() {
 		search.sendKeys("refrigerator");
 		searchbtn.click();
 		product.click();
 		wishlist.click();
+		icon.click();
+		remove.click();
+		String print=msg.getText();
+		assertEquals("Product has been remove from wishlist!",print);				
+		
+		
+		for(WebElement wish:wishitem)
+		{
+		String str=wish.getText();
+		System.out.println(str);
+		assertTrue(str.contains("Mouse Hp"));
+		}
+	
 	}
 	public void homelist() {
 		
-	  JavascriptExecutor js = (JavascriptExecutor) driver;
-  	  js.executeScript("window.scrollBy(0,550)");
+	  JavascriptExecutor js =(JavascriptExecutor)driver;
+	  js.executeScript("window.scrollBy(0,550)","");
   	  homeproduct.click();
   	  wishlist.click();
+  	remove.click();	
+	String print=msg.getText();
+	assertEquals("Product has been remove from wishlist!",print);				
+	
 	}
+	public void footerbannerlist() {
+	  	footban.click();
+	  	prdt.click();
+	  	  wishlist.click();
+		}
+		public void dealoflist() throws Throwable  {
+			Thread.sleep(2000);
+			dealbuy.click();
+		  	  wishlist.click();
+		  	remove.click();					
+			String print=msg.getText();
+			assertEquals("Product has been remove from wishlist!",print);	
+			}
+	
+	
+	
+	
 }

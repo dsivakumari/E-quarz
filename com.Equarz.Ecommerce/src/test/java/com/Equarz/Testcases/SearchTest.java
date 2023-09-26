@@ -1,37 +1,42 @@
 package com.Equarz.Testcases;
 
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+
+import com.Pageobjects.Login_Functionality;
 import com.Pageobjects.Search_Functionality;
 import com.base.Testbase;
 
-public class SearchTest extends Testbase{
+public class SearchTest extends Testbase {
+	Search_Functionality bf;
+	Login_Functionality lg;
 
-	Search_Functionality product;
 
-	public SearchTest() {
+	public SearchTest()
+	{
 		super();
-		
 	}
 	@BeforeMethod
-	
-	public void initialize() {
-		Setup();
-				product=new Search_Functionality(driver);
-			}
-	@Test
-	public void cat() throws Exception {
-		
-		product.Search_product();
-				
-	}
-	@AfterMethod
-	public void shutdown() 
+	public void initialize() throws InterruptedException
 	{
-		driver.close();
-	}
-	
 
+		Setup();
+		lg=new Login_Functionality(driver);
+		lg.validateLogin();
+		bf=new Search_Functionality (driver);		
+
+	}
+	@Test()
+	public void search () throws InterruptedException 
+	{
+		bf.validatesearch();
+
+	}
+	@Test()
+	public void searchdrop () throws InterruptedException 
+	{
+		bf.dropdownsearch();
+
+	}
 }

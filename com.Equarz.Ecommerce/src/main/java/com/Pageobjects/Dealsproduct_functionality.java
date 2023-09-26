@@ -20,13 +20,13 @@ public class Dealsproduct_functionality  extends Testbase{
 	{
 		PageFactory.initElements(driver, this);
 	}
-	public Homepage validateProduct() throws InterruptedException
+	public void validateProduct() throws InterruptedException
 	{
 		popclose.click();
 		buynow.click();
 		Thread.sleep(3000);
 		addtocart.click();
-		return new Homepage();
+		
 		
 	}
 	

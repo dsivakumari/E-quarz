@@ -12,8 +12,8 @@ import org.openqa.selenium.support.PageFactory;
 import com.base.Testbase;
 
 public class Product_functionality extends Testbase {
-	@FindBy(xpath="//button[@class='close __close']")
-	WebElement popclose;
+	//@FindBy(xpath="//button[@class='close __close']")
+	//WebElement popclose;
 //@FindBy(xpath="//a[@href='http://e-quarz.com/product/avro-furniture-set-of-2-plastic-chairs-matt-and-gloss-pattern-plastic-chairs-for-home-living-room-bearing-capacity-up-to'][1]")
 	//WebElement Product;
 	
@@ -31,9 +31,9 @@ public class Product_functionality extends Testbase {
 	{
 		PageFactory.initElements(driver, this);
 	}
-	public Homepage validateProduct() throws InterruptedException
+	public void validateProduct() throws InterruptedException
 	{
-		popclose.click();
+		//popclose.click();
 		//Thread.sleep(3000);
 		//search.sendKeys(props.getProperty("laptops"));
 		Actions ac=new Actions(driver);
@@ -46,7 +46,7 @@ public class Product_functionality extends Testbase {
 		product.click();
 		addtocart.click();
 		
-		return new Homepage();
+		
 		
 	}
 

@@ -1,49 +1,65 @@
 package com.Equarz.Testcases;
 
-import java.sql.Driver;
-
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-
-
+import com.Pageobjects.Login_Functionality;
 import com.Pageobjects.Wishlist_Functionality;
 import com.base.Testbase;
 
-public class wishlisttest  extends Testbase{
+public class wishlisttest extends Testbase {
+	
 	Wishlist_Functionality wf;
-	WebDriver driver;
+	Login_Functionality lg;
 	
-	public wishlisttest()
-	{
-	super()	;
-	
+	public wishlisttest() {
+		super();
 	}
-	@BeforeMethod
-	public void initialize()
-	{
-		Setup();
-		wf=new Wishlist_Functionality (driver);
 	
+	@BeforeMethod
+	public void initialize() throws Throwable {
+		
+		Setup();
+		lg= new Login_Functionality(driver);
+		lg.validateLogin();
+		//lg.validateLogin(props.getProperty("username"),props.getProperty("password"));
+		 wf = new Wishlist_Functionality(driver);
+	}
+
+
+	@Test
+	public void categorywishlist() 
+	{
+		wf.categorylist();
 	}
 	@Test
-	public void wishlist() throws Throwable  
-
+	public void bannerwishlist() 
 	{
-		wf.validateProduct();
-		String url=driver.getCurrentUrl();
-
-		
+		wf.bannerlist();
+	}
+	@Test
+	public void searchwishlist() 
+	{
+		wf.searchlist();
+	}
+	@Test
+	public void homewishlist()
+	{
+		wf.homelist();
+	}
+	public void footerbannerlist()
+	{
+		wf.footerbannerlist();
+	}
+	public void dealoflist() throws Throwable
+	{
+		wf.dealoflist();
 	}
 	@AfterMethod
-	public void wishlist1() 
+	public void teardown()
 	{
-		driver.close();
-		
+		//driver.close();
 	}
-	
-	
-
 }
+	

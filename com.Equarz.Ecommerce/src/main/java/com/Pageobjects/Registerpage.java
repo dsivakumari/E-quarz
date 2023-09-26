@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.base.Testbase;
-import com.hospiol.pageobjects.Homepage;
+//import com.hospiol.pageobjects.Homepage;
 
 public abstract class Registerpage extends Testbase {
 	
@@ -38,11 +38,10 @@ public abstract class Registerpage extends Testbase {
 	WebElement signup;
 	
 	
-	public Registerpage (WebDriver driver) {
+	public void Registerpage (WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
-	public Homepage verifyRegistartion(String first,String last,
-			String email,String phonenumber,String password,String conpassword, String captcha ) {
+	public void verifyRegistartion(String first,String last,String email,String phonenumber,String password,String conpassword, String captcha ) {
 		
 		fastname.sendKeys(first);
 		lastname.sendKeys(last);
@@ -53,7 +52,7 @@ public abstract class Registerpage extends Testbase {
 		checkbox.click();
 		signup.click();
 		
-		return new Homepage();
+	
 		
 	
 		
