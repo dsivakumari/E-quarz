@@ -13,7 +13,7 @@ public class Address_Functionality  extends Testbase {
 	@FindBy(xpath="//label[text()='Permanent']")
 	WebElement parmanent;
 	@FindBy(id="name")
-	WebElement name;
+	WebElement contractpersonname;
 	@FindBy(id="phone")
 	WebElement  phone;
 	@FindBy(id="address-city")
@@ -29,13 +29,37 @@ public class Address_Functionality  extends Testbase {
 	@FindBy(xpath="//button[@class='btn btn--primary']")
 	WebElement update;
 	
-	public void addresspage (WebDriver driver) {
+	public Address_Functionality (WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
-		public Address_Functionality(String name,String phone,
+		public  void Addresspage(String name,String phone,
 				String city,String zip,String india,String address ) {
 			
-			addnewaddress.sendKeys("name");
+			contractpersonname.sendKeys(name);
+			
+			
+			
+			
+			
+			
+		
+		
+			
+		
+			
+			
+
+			
+			
+			
+			
+			
+		      
+			
+			
+			
+			
+			
 			
 			
 			
