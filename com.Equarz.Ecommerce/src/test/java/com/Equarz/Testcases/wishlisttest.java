@@ -22,7 +22,7 @@ public class wishlisttest extends Testbase {
 		
 		Setup();
 		lg= new Login_Functionality(driver);
-		lg.validateLogin();
+		//lg.validateLogin();
 		//lg.validateLogin(props.getProperty("username"),props.getProperty("password"));
 		 wf = new Wishlist_Functionality(driver);
 	}

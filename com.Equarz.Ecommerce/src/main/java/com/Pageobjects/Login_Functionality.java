@@ -27,15 +27,15 @@ public class Login_Functionality extends Testbase {
 	{
 		PageFactory.initElements(driver, this);
 	}
-	public void validateLogin(String user1,String password1)
+	//public void validateLogin(String user1,String password1)
 	
-	//public void validateLogin()
+	public void validateLogin()
 	{
-		user.sendKeys(user1);
-		pass.sendKeys(password1);
+		//user.sendKeys(user1);
+		//pass.sendKeys(password1);
 
-		//user.sendKeys(props.getProperty("username"));
-		//pass.sendKeys(props.getProperty("password"));
+		user.sendKeys(props.getProperty("username"));
+		pass.sendKeys(props.getProperty("password"));
 
 		//Thread.sleep(10000);
 

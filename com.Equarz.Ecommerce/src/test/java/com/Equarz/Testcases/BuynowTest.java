@@ -26,7 +26,7 @@ public class BuynowTest extends Testbase {
 
 		Setup();
 		lg=new Login_Functionality(driver);
-		lg.validateLogin();
+		//lg.validateLogin();
 		bf=new Buynow_Functionality (driver);		
 
 	}

@@ -2,6 +2,7 @@ package com.Utils;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.Set;
 
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -44,6 +45,20 @@ public class Utils extends Testbase {
 
 	}
 
-}
 
+	
+
+	public homepage1 Windowhandless(String window)
+		{
+			Set<String> handles = driver.getWindowHandles();
+			for (String hand : handles) {
+				if (!window.equals(hand)) {
+					driver.switchTo().window(hand);
+					driver.manage().window().maximize();
+
+}
+			}
+			return new homepage1();  
+		}
+}
 

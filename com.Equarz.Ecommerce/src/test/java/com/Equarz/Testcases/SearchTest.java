@@ -23,7 +23,7 @@ public class SearchTest extends Testbase {
 
 		Setup();
 		lg=new Login_Functionality(driver);
-		lg.validateLogin();
+		//lg.validateLogin();
 		bf=new Search_Functionality (driver);		
 
 	}
