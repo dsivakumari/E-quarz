@@ -1,5 +1,9 @@
 package com.Utils;
 
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Set;
@@ -16,15 +20,19 @@ import com.base.Testbase;
 
 public class Utils extends Testbase {
 
-	@DataProvider
 
-	public String[][] setdata() throws Throwable {
+	private static final String filepath="C:\\Users\\Dell\\git\\Eccomerce_Project\\com.Equarz.Ecommerce\\src\\main\\java\\com\\testdata\\Address.xlsx"; //object declare chesukovadaniki
 
-		File file = new File("C:\\Users\\Dell\\Desktop\\Credentials.xlsx");
+	public static String[][] readata(String sheetname) throws Throwable {
+		
+		//File file = new File("C:\\Users\\Dell\\Desktop\\Credentials.xlsx");
+		File file =new File (filepath);
+		
 		FileInputStream stream = new FileInputStream(file);
 		XSSFWorkbook workbook = new XSSFWorkbook(stream)
 ;
-		XSSFSheet sheet = workbook.getSheetAt(0);
+		XSSFSheet sheet = workbook.getSheet(sheetname);
+		
 
 		int rows = sheet.getPhysicalNumberOfRows();
 		int columns = sheet.getRow(1).getLastCellNum();
@@ -59,6 +67,21 @@ public class Utils extends Testbase {
 }
 			}
 			return new homepage1();  
+			
 		}
+	public static void robo() throws Throwable
+	{
+		Robot robo=new Robot();
+		robo.delay(3000);
+
+		StringSelection upload=new StringSelection("C:\\Users\\Dell\\Desktop\\download");
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(upload, null);
+		robo.keyPress(KeyEvent.VK_CONTROL);
+		robo.keyPress(KeyEvent.VK_V);
+		robo.keyRelease(KeyEvent.VK_CONTROL);
+		robo.keyRelease(KeyEvent.VK_V);
+		robo.keyPress(KeyEvent.VK_ENTER);
+		robo.keyRelease(KeyEvent.VK_ENTER);
+	}
 }
 
