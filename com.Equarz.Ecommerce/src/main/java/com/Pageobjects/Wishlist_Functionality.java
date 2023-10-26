@@ -13,8 +13,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.base.Testbase;
+import com.base.Testbase1;
 
-public class Wishlist_Functionality extends Testbase {
+public class Wishlist_Functionality extends Testbase1 {
 	
 	
 	@FindBy(xpath=" (//span[text()='Books'])[1]")

@@ -12,19 +12,17 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class Testbase {
-
-	public FileInputStream file;
+public class Testbase1 {
+	FileInputStream file;
 	public static Properties props;
 	public static WebDriver driver;
-	public String window1;
 
-	public Testbase() {
+	public Testbase1() {
 		
 		props = new Properties();
 
 		try {
-			file = new FileInputStream("./src/main/java/com/PropertiesConfig/Propfile");
+			file = new FileInputStream("./src//main//java//com//PropertiesConfig//Propfile");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -41,6 +39,7 @@ public class Testbase {
 		String browsername = props.getProperty("browser");
 
 		if (browsername.equalsIgnoreCase("chrome")) {
+			System.setProperty("webdriver.chrome.driver", "C:\\Users\\Dell\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
 
 			driver = new ChromeDriver();
 		}
@@ -51,15 +50,18 @@ public class Testbase {
 		}
 
 		else if (browsername.equalsIgnoreCase("firefox")) {
+			//System.setProperty("webdriver.gecko.driver", "C:\\Users\\Dell\\Downloads\\geckodriver-v0.33.0-win64(1)\\geckodriver.exe");
 			driver = new FirefoxDriver();
+			
 		}
 
 		driver.manage().window().maximize();
+		//driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
 		driver.get(props.getProperty("url"));
-		//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-		driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		//driver.manage().deleteAllCookies();
+		
+		
+	}
+
 }
-}
-
-
-

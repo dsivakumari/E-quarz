@@ -7,8 +7,9 @@ import org.testng.annotations.Test;
 import com.Pageobjects.Login_Functionality;
 import com.Pageobjects.Wishlist_Functionality;
 import com.base.Testbase;
+import com.base.Testbase1;
 
-public class wishlisttest extends Testbase {
+public class wishlisttest extends Testbase1 {
 	
 	Wishlist_Functionality wf;
 	Login_Functionality lg;

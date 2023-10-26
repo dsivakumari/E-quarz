@@ -1,5 +1,8 @@
 package com.Pageobjects;
 
+import static org.testng.Assert.assertEquals;
+
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,80 +14,95 @@ import com.Utils.Utils;
 import com.base.Testbase;
 
 public class Address_Functionality  extends Testbase {
-	@FindBy(xpath="//img[@src='http://e-quarz.com/public/assets/front-end/img/image-place-holder.png']")
+	@FindBy(xpath="//small[text()='Hello, sairam']")
+	WebElement dashboard;
+	@FindBy(xpath="//a[text()=' My profile']")
 	WebElement profile;
-	//Utils ul;
-    @FindBy(xpath="//a[normalize-space()='My profile']")
-	WebElement myprofile;
-    Utils ul;
-	@FindBy(xpath="//a[normalize-space()='Address']")
+	@FindBy(xpath="//a[text()='Address ']")
 	WebElement address;
-	@FindBy(id="add_new_address")
-	WebElement addnewaddress;
-	@FindBy(xpath="//label[text()='Permanent']")
-	WebElement parmanent;
-	@FindBy(id="person_name")
-	WebElement contractpersonname;
-	@FindBy(id="own_phone")
-	WebElement  phone;
-	@FindBy(id="address-city")
+	@FindBy(xpath="//button[@id='add_new_address']")
+	WebElement addnew;
+	@FindBy(xpath="//input[@id='name']")
+	WebElement name;
+	@FindBy(xpath="//input[@id='phone']")
+	WebElement phone;
+	@FindBy(xpath="//input[@id='address-city']")
 	WebElement city;
-	@FindBy(id="zip_code")
+	@FindBy(xpath="//input[@id='zip']")
 	WebElement zip;
-	@FindBy(xpath="//input[@role='textbox']")
-	WebElement searchbar;
-	@FindBy(xpath="//div[text()='India']")
-	WebElement india;
-	@FindBy(xpath="//div[@class='filter-option-inner-inner']")
+	@FindBy(xpath="//div[@class='filter-option-inner']")
 	WebElement country;
-	@FindBy(xpath="//textarea[@class='form-control']")
-	WebElement address1;
-	@FindBy(xpath="//button[@class='btn btn-secondary']")
-	WebElement close;
-	@FindBy(xpath=" //button[text()='Add Informations  ']")
-	WebElement AddInformation;
-    @FindBy(xpath="//section[6]//div[1]//div[1]//div[3]//a[1]//i[1]")
+	@FindBy(xpath="//input[@role='textbox']")
+	WebElement search;
+	@FindBy(xpath="//span[text()='India']")
+	WebElement india;
+	@FindBy(xpath="//textarea[@id='address']")
+	WebElement add;
+	@FindBy(xpath="//button[text()='Add Informations  ']")
+	WebElement addinfo;
+	@FindBy(xpath="(//div[@class='d-flex justify-content-between'])[7]")
 	WebElement edit;
+	@FindBy(xpath="//input[@id='zip_code']")
+	WebElement zipcode;
+	@FindBy(xpath="//button[text()='Update  ']")
+	WebElement update;
+	@FindBy(xpath="//div[text()='Data updated successfully!']")
+	WebElement msg;
+	@FindBy(xpath="(//a[@id='delete'])[7]")
+	WebElement delete;
 	
-	public Address_Functionality (WebDriver driver) {
+	
+	
+	
+	
+	
+	public Address_Functionality(WebDriver driver)
+	{
 		PageFactory.initElements(driver, this);
 	}
-		public  void Addresspage(String name,String phone1,String city1,String zip1,String address1 ) 
-		{
-			 Actions act =new Actions(driver);
-				act.moveToElement(address).build().perform();
-				profile.click();
-				//ul=new Utils();
-				//Utils.dropdown(profile, "2");
-				myprofile.click();
-				ul=new Utils();
-				Utils.dropdown(profile, "2");
-				
-				address.click();
-				addnewaddress.click();
-				parmanent.click();
-			contractpersonname.sendKeys(name);	
-			phone.sendKeys(phone1);
-			city.sendKeys(city1);
-			zip.sendKeys(zip1);
-			
-	}
-		public void dropdownsearch1()
-		{
-			searchbar.sendKeys(props.getProperty("country"));
-			searchbar.sendKeys(Keys.ENTER);
-			india.sendKeys(india1);
-			country.sendKeys(country1);
-			address1.sendKeys(address2);
-			close.click();
-			AddInformation.click();
-			edit.click();
-			
-			
-			
-				
-			}
 		
+	public void addaddress(String name1,String phone1,String city1,String zipcode1  ) throws InterruptedException 
+	{
+		Actions ac=new Actions(driver);
+		ac.moveToElement(dashboard).build().perform();
+		profile.click();
+		address.click();
+		addnew.click();
+		name.sendKeys(name1);
+		phone.sendKeys(phone1);
+		city.sendKeys(city1);
+		phone.sendKeys(phone1);
+		zip.sendKeys(zipcode1);
+		country.click();	
+		search.sendKeys(props.getProperty("name"));
+		india.click();
+		add.sendKeys("Hyderabad");
+		addinfo.click();
+		String str1=driver.getCurrentUrl();
+		assertEquals("http://e-quarz.com/account-address", str1);
+	}
+	public void editaddress()
+	{
+		edit.click();
+		
+		zipcode.clear();
+		zipcode.sendKeys("5000017");
+		update.click();
+		String print=msg.getText();
+		assertEquals("Data updated successfully!",print);
+	}
+	public void deleteaddress() throws Throwable
+	{
+		address.click();
+		delete.click();
+		Alert al=driver.switchTo().alert();
+		Thread.sleep(3000);
+		al.accept();
+		String url=driver.getCurrentUrl();
+		assertEquals("http://e-quarz.com/account-address", url);
+	}
+
+	}
 		
 		
 			
@@ -127,7 +145,7 @@ public class Address_Functionality  extends Testbase {
 		
 		
 			
-		}
+		
 			
 		
 	

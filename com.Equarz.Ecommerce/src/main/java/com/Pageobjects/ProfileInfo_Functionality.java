@@ -21,64 +21,64 @@ public class ProfileInfo_Functionality extends Testbase {
 	//Utils ut=new Utils();
 	 Actions act =new Actions(driver);
 	@FindBy(xpath="//small[text()='Hello, Siva']")
+	WebElement dashboard;
+	@FindBy(xpath="//a[text()=' My profile']")
 	WebElement profile;
-	@FindBy(xpath="//a[normalize-space()='My profile']")
-	WebElement myprofile;
 	@FindBy(xpath="//label[@class='spandHeadO m-0']")
 	WebElement upload;
-    @FindBy(xpath="//input[@id='f_name']")
-    WebElement firstname;
-    @FindBy(xpath="//input[@id='l_name']")
-    WebElement lastname;
-    //@FindBy(xpath="//input[@id='account-email']")
-    //WebElement emailid;
-    @FindBy(xpath="//input[@id='phone']")
-    WebElement phonenumber;
-    @FindBy(xpath="//input[@id='password']")
-    WebElement newpassword;
-    @FindBy(xpath="//input[@id='confirm_password']")
-    WebElement confirmpassword;
-    @FindBy(xpath="//button[@class='btn btn--primary']")
-    WebElement update;
-    @FindBy (xpath="//a[@class='btn btn-danger']")
-    WebElement delect;
-    
-    
-    public ProfileInfo_Functionality(WebDriver driver) {
+	@FindBy(xpath="//input[@id='f_name']")
+	WebElement fname;
+	@FindBy(xpath="//input[@id='l_name']")
+	WebElement lname;
+	@FindBy(xpath="//input[@id='phone']")
+	WebElement phone;
+	@FindBy(xpath="//input[@id='password']")
+	WebElement pass;
+	@FindBy(xpath="//input[@id='confirm_password']")
+	WebElement cpass; 
+	@FindBy(xpath="//button[text()='Update   ']")
+	WebElement update;
+	@FindBy(xpath="//div[text()='Updated successfully']")
+	WebElement successful;
+	public ProfileInfo_Functionality(WebDriver driver)
+	{
 		PageFactory.initElements(driver, this);
 	}
-     
-    public void VerifyProfile( String first, String last , String email , String phone , String password , String confimpass ) throws AWTException {
-    
-    	// Actions act =new Actions(driver);
-			act.moveToElement(profile).build().perform();
-			myprofile.click();	
-			upload.click();
-			Robot rb=new Robot();
-			rb.delay(3000);
-			StringSelection upload=new StringSelection("C:\\Users\\Dell\\Desktop\\download");
-			Toolkit.getDefaultToolkit().getSystemClipboard().setContents(upload, null);
-			rb.keyPress(KeyEvent.VK_CONTROL);
-			rb.keyPress(KeyEvent.VK_V);
-			rb.keyRelease(KeyEvent.VK_CONTROL);
-			rb.keyRelease(KeyEvent.VK_V);
-			rb.keyPress(KeyEvent.VK_ENTER);
-			rb.keyRelease(KeyEvent.VK_ENTER);
+		
+	public void editprofie() throws InterruptedException, AWTException 
+	{
+		Actions ac=new Actions(driver);
+		ac.moveToElement(dashboard).build().perform();
+		profile.click();
+		upload.click();
+		Robot rb=new Robot();
+		rb.delay(3000);
+		StringSelection ss=new StringSelection("\"C:\\Users\\Dell\\Desktop\\logo.jpeg\"");
 
-    	
-    	firstname.sendKeys(first);
-    	lastname.sendKeys(last);
-    	//emailid.sendKeys(email);
-    	phonenumber.sendKeys(phone);
-    	newpassword.sendKeys(password);
-    	confirmpassword.sendKeys(confimpass);
-    	update.click();
-    	
-    	
-    	
-    	
-    	
-    	
-    }
 
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+		rb.keyPress(KeyEvent.VK_CONTROL);
+		rb.keyPress(KeyEvent.VK_V);
+		rb.keyRelease(KeyEvent.VK_CONTROL);
+		rb.keyRelease(KeyEvent.VK_V);
+		rb.keyPress(KeyEvent.VK_ENTER);
+		rb.keyRelease(KeyEvent.VK_ENTER);
+		fname.clear();
+		fname.sendKeys("siva");
+		lname.clear();
+		lname.sendKeys("kumari");
+		phone.sendKeys("3");
+		pass.clear();
+		pass.sendKeys("dsivakumari2022@gmail.com");
+		cpass.clear();
+		cpass.sendKeys("dsivakumari2022@gmail.com");
+		update.click();
+		String print=successful.getText();
+		System.out.println(print);
+		assertEquals("Updated successfully",print);
+		
+
+	}
 }
+
+	

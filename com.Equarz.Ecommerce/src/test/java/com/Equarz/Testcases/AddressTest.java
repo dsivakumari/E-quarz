@@ -2,35 +2,65 @@ package com.Equarz.Testcases;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.Pageobjects.Address_Functionality;
 import com.Pageobjects.Login_Functionality;
+import com.Utils.Utils;
 import com.base.Testbase;
 
 public class AddressTest extends Testbase {
+	int testid;
 	Address_Functionality af;
 	Login_Functionality lg;
+	private final String sheetname="addressdata";
 	
-	public AddressTest() {
+	
+	public AddressTest()
+	{
 		super();
+	}
+	@BeforeClass
+	public void login()
+	{
+		Setup();
+		lg=new Login_Functionality(driver);
+		lg.validateLogin();
 		
 	}
+	@DataProvider
+	public String[][] addressData() throws Throwable
+	{
+		return Utils.readata(sheetname);
+	}
+	
 	@BeforeMethod
-	public void initialize() {
-    Setup();
-    af=new Address_Functionality (driver);
-    lg=new Login_Functionality(driver);
-    lg.validateLogin();
+	public void initialize() 
+	{
+		
+//		Setup();
+//		lg=new Login_Functionality(driver);
+//		lg.validateLogin();
+		af=new Address_Functionality (driver);		
+				
 	}
-	@Test
-	public void Addresspage1(String name,String phone1,String city1,String zip1,String address1 ) {
-		af.Addresspage(name, phone1, city1, zip1, address1);
+	@Test(priority=1,dataProvider = "addressData",dataProviderClass =AddressTest.class )
+	public void addaddress(String name,String phone,String city,String zipcode) throws InterruptedException 
+	{
+		testid=1;
+		af.addaddress(name,phone,city,zipcode);
 		
 	}
-	@Test
-	public void dropdown() {
-		af.dropdownsearch1();
+	@Test(priority=2)
+	public void editaddress()
+	{
+		af.editaddress();
+	}
+	@Test(priority=3)
+	public void deleteaddress() throws Throwable
+	{
+		af.deleteaddress();
 	}
 	
 

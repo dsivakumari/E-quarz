@@ -16,34 +16,37 @@ import com.Utils.Utils;
 import com.base.Testbase;
 
 public class ProfileInfoTest extends Testbase {
-	int testid;
-	ProfileInfo_Functionality pf;
+	ProfileInfo_Functionality ef;
 	Login_Functionality lg;
-	//Utils ut;
-	private final String sheetname="Profileinfo";
 	
 	
-
-	 public ProfileInfoTest() {
-		 super();
-	 }
-	 @DataProvider 
-	 public String[][] profiledata() throws Throwable {//declare chesukunam
-		 return Utils.readata(sheetname);
-		 
-	 }
-	 @BeforeClass
-		public void initialize() {
-			Setup();
+	public ProfileInfoTest ()
+	{
+		super();
+	}
+	@BeforeClass
+	public void login()
+	{
+		Setup();
+		lg=new Login_Functionality(driver);
+		lg.validateLogin();
 		
-		pf=new ProfileInfo_Functionality (driver);
-			lg= new Login_Functionality(driver);
-			lg.validateLogin();
-	 }
-	 @Test(priority = 1,dataProvider = "profiledata",dataProviderClass = ProfileInfoTest.class )
-	 public void VerifyProfile( String first, String last , String email , String phone , String password , String confimpass ) throws AWTException {
-		 testid=1;
-		 pf.VerifyProfile(first, last, email, phone, password, confimpass);
-	 }
-	 
+	}
+	@BeforeMethod
+	public void initialize() 
+	{
+		
+//		Setup();
+//		lg=new Login_Functionality(driver);
+//		lg.validateLogin();
+		ef=new ProfileInfo_Functionality (driver);		
+				
+	}
+	@Test()
+	public void search() throws InterruptedException, AWTException
+	{
+		ef.editprofie();
+		
+	}
+
 }
