@@ -10,8 +10,9 @@ import com.Pageobjects.Buynow_Functionality;
 import com.Pageobjects.Login_Functionality;
 import com.Pageobjects.Wishlist_Functionality;
 import com.base.Testbase;
+import com.base.Testbase1;
 
-public class BuynowTest extends Testbase {
+public class BuynowTest extends Testbase1 {
 	Buynow_Functionality bf;
 	Login_Functionality lg;
 
@@ -26,7 +27,7 @@ public class BuynowTest extends Testbase {
 
 		Setup();
 		lg=new Login_Functionality(driver);
-		//lg.validateLogin();
+		lg.validateLogin();
 		bf=new Buynow_Functionality (driver);		
 
 	}

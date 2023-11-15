@@ -11,11 +11,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
+import org.openqa.selenium.support.events.WebDriverEventListener;
+
+import com.Utils.Screenshort;
 
 public class Testbase1 {
 	FileInputStream file;
 	public static Properties props;
 	public static WebDriver driver;
+	public static EventFiringWebDriver edriver; 
+	public static Screenshort event;
 
 	public Testbase1() {
 		
@@ -54,6 +60,10 @@ public class Testbase1 {
 			driver = new FirefoxDriver();
 			
 		}
+		edriver=new EventFiringWebDriver(driver);
+		event=new Screenshort();
+		edriver.register((WebDriverEventListener) event);
+		driver=edriver;
 
 		driver.manage().window().maximize();
 		//driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));

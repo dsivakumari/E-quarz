@@ -8,8 +8,9 @@ import org.testng.annotations.Test;
 import com.Pageobjects.Login_Functionality;
 import com.Pageobjects.Logout_functionality;
 import com.base.Testbase;
+import com.base.Testbase1;
 
-public class LogoutTest extends Testbase{
+public class LogoutTest extends Testbase1{
 	Logout_functionality lf;
 	Login_Functionality lg;
 

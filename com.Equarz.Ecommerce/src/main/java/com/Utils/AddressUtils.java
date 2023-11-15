@@ -13,14 +13,19 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.DataProvider;
 
 import com.base.Testbase;
+import com.base.Testbase1;
 
-public class AddressUtils  extends Testbase{
+import net.sourceforge.lept4j.ILeptonica.FILE;
+
+public class AddressUtils  extends Testbase1{
 @DataProvider
 	
 	public String[][] setdata() throws IOException
 	{
-		File file=new File("C:\\Users\\Dell\\git\\Eccomerce_Project\\com.Equarz.Ecommerce\\src\\main\\java\\com\\testdata\\Address (1).xlsx");
-		FileInputStream stream=new FileInputStream(file);
+		
+	File file=new File("C:\\Users\\Dell\\git\\Eccomerce_Project\\com.Equarz.Ecommerce\\src\\main\\java\\com\\testdata\\Address (1).xlsx");
+	
+	   		FileInputStream stream=new FileInputStream(file);
 		XSSFWorkbook workbook=new XSSFWorkbook(stream);
 		XSSFSheet sheet=workbook.getSheetAt(0);
 		int rows=sheet.getPhysicalNumberOfRows();

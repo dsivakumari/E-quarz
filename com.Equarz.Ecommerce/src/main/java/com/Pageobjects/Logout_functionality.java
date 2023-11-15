@@ -11,8 +11,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.base.Testbase;
+import com.base.Testbase1;
 
-public class Logout_functionality extends Testbase {
+public class Logout_functionality extends Testbase1 {
 	@FindBy(xpath="//small[text()='Hello, sairam']")
 	WebElement dashboard;
 	@FindBy(xpath="//a[text()='Logout']")

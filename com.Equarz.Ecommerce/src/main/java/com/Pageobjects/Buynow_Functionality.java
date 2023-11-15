@@ -12,8 +12,9 @@ import org.openqa.selenium.support.ui.Select;
 
 import com.Utils.Utils;
 import com.base.Testbase;
+import com.base.Testbase1;
 
-public class Buynow_Functionality extends Testbase {
+public class Buynow_Functionality extends Testbase1 {
 	@FindBy(xpath="//span[text()='TVs & Appliances']")
 	WebElement cat;
 	@FindBy(xpath="//span[text()='Microwave oven']")

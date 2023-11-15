@@ -9,8 +9,9 @@ import com.Pageobjects.Address_Functionality;
 import com.Pageobjects.Login_Functionality;
 import com.Utils.Utils;
 import com.base.Testbase;
+import com.base.Testbase1;
 
-public class AddressTest extends Testbase {
+public class AddressTest extends Testbase1 {
 	int testid;
 	Address_Functionality af;
 	Login_Functionality lg;

@@ -12,8 +12,9 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.Utils.Utils;
 import com.base.Testbase;
+import com.base.Testbase1;
 
-public class Address_Functionality  extends Testbase {
+public class Address_Functionality  extends Testbase1 {
 	@FindBy(xpath="//small[text()='Hello, sairam']")
 	WebElement dashboard;
 	@FindBy(xpath="//a[text()=' My profile']")

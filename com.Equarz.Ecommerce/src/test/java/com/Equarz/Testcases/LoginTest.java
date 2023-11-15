@@ -9,8 +9,9 @@ import org.testng.annotations.Test;
 import com.Pageobjects.Login_Functionality;
 import com.Utils.Utils;
 import com.base.Testbase;
+import com.base.Testbase1;
 
-public class LoginTest extends Testbase {
+public class LoginTest extends Testbase1 {
 
 
 	Login_Functionality lg;

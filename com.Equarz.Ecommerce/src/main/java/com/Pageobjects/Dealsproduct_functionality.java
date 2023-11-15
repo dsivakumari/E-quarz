@@ -6,10 +6,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.base.Testbase;
+import com.base.Testbase1;
 
-public class Dealsproduct_functionality  extends Testbase{
-	@FindBy(xpath="//button[@class='close __close']")
-	WebElement popclose;
+public class Dealsproduct_functionality  extends Testbase1{
+	//@FindBy(xpath="//button[@class='close __close']")
+	//WebElement popclose;
 	//@FindBy(xpath="//span[text()='Flash deal']")
 	//WebElement Flashdeal;
 	@FindBy(xpath="//button[@class='buy_btn']")
@@ -22,7 +23,7 @@ public class Dealsproduct_functionality  extends Testbase{
 	}
 	public void validateProduct() throws InterruptedException
 	{
-		popclose.click();
+		//popclose.click();
 		buynow.click();
 		Thread.sleep(3000);
 		addtocart.click();

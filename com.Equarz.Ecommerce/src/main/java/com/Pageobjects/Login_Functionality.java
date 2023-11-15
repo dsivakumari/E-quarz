@@ -7,12 +7,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import com.base.Testbase;
+import com.base.Testbase1;
 
 
 
-public class Login_Functionality extends Testbase {
+public class Login_Functionality extends Testbase1 {
 	
 	@FindBy(id="si-email")
 	WebElement user;
@@ -42,7 +44,8 @@ public class Login_Functionality extends Testbase {
 		element.sendKeys(str);
 		signinbtn.click();
 
-		
+		String url=driver.getCurrentUrl();
+		Assert.assertEquals("http://e-quarz.co/", url);	
 		
 		
 		
