@@ -3,14 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.Equarz.Testcases.LogoutTest">
+      <class name="com.Equarz.Testcases.AdminScenarioTest">
         <methods>
-          <include name="logout"/>
-          <include name="back"/>
-          <include name="refresh"/>
+          <include name="verifyproduct"/>
           <include name="initialize"/>
         </methods>
-      </class> <!-- com.Equarz.Testcases.LogoutTest -->
+      </class> <!-- com.Equarz.Testcases.AdminScenarioTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

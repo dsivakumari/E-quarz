@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <listeners>
-    <listener class-name="com.Reports.Report"/>
-  </listeners>
-  <test thread-count="5" name="Test(failed)">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.Equarz.Testcases.LoginTest">
+      <class name="com.Equarz.Testcases.AdminScenarioTest">
         <methods>
-          <include name="teardown"/>
+          <include name="verifyproduct"/>
           <include name="initialize"/>
-          <include name="verifylog"/>
         </methods>
-      </class> <!-- com.Equarz.Testcases.LoginTest -->
+      </class> <!-- com.Equarz.Testcases.AdminScenarioTest -->
     </classes>
-  </test> <!-- Test(failed) -->
-</suite> <!-- Failed suite [Suite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

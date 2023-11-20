@@ -2,30 +2,24 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-10-26T15:12:32 IST" name="Suite" finished-at="2023-10-26T15:12:59 IST" duration-ms="26789">
+  <suite started-at="2023-11-20T12:59:27 IST" name="Default suite" finished-at="2023-11-20T13:00:13 IST" duration-ms="45454">
     <groups>
     </groups>
-    <test started-at="2023-10-26T15:12:32 IST" name="Test" finished-at="2023-10-26T15:12:59 IST" duration-ms="26789">
-      <class name="com.Equarz.Testcases.LoginTest">
-        <test-method is-config="true" signature="initialize()[pri:0, instance:com.Equarz.Testcases.LoginTest@34a3d150]" started-at="2023-10-26T15:12:32 IST" name="initialize" finished-at="2023-10-26T15:12:53 IST" duration-ms="20211" status="PASS">
+    <test started-at="2023-11-20T12:59:27 IST" name="Default test" finished-at="2023-11-20T13:00:13 IST" duration-ms="45454">
+      <class name="com.Equarz.Testcases.AdminScenarioTest">
+        <test-method is-config="true" signature="initialize()[pri:0, instance:com.Equarz.Testcases.AdminScenarioTest@59474f18]" started-at="2023-11-20T12:59:27 IST" name="initialize" finished-at="2023-11-20T13:00:04 IST" duration-ms="36432" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initialize -->
-        <test-method signature="verifylog()[pri:0, instance:com.Equarz.Testcases.LoginTest@34a3d150]" started-at="2023-10-26T15:12:53 IST" name="verifylog" finished-at="2023-10-26T15:12:59 IST" duration-ms="6287" status="FAIL">
-          <exception class="java.lang.AssertionError">
+        <test-method signature="verifyproduct()[pri:0, instance:com.Equarz.Testcases.AdminScenarioTest@59474f18]" started-at="2023-11-20T13:00:04 IST" name="verifyproduct" finished-at="2023-11-20T13:00:13 IST" duration-ms="8934" status="FAIL">
+          <exception class="java.lang.NullPointerException">
             <message>
-              <![CDATA[expected [http://e-quarz.com/] but found [http://e-quarz.co/]]]>
+              <![CDATA[Cannot invoke "org.openqa.selenium.WebDriver.getCurrentUrl()" because "com.Pageobjects.Login_Functionality.driver" is null]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [http://e-quarz.com/] but found [http://e-quarz.co/]
-at org.testng.Assert.fail(Assert.java:111)
-at org.testng.Assert.failNotEquals(Assert.java:1578)
-at org.testng.Assert.assertEqualsImpl(Assert.java:150)
-at org.testng.Assert.assertEquals(Assert.java:132)
-at org.testng.Assert.assertEquals(Assert.java:656)
-at org.testng.Assert.assertEquals(Assert.java:666)
-at com.Pageobjects.Login_Functionality.validateLogin(Login_Functionality.java:48)
-at com.Equarz.Testcases.LoginTest.verifylog(LoginTest.java:32)
+              <![CDATA[java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.getCurrentUrl()" because "com.Pageobjects.Login_Functionality.driver" is null
+at com.Pageobjects.Login_Functionality.validateLogin(Login_Functionality.java:47)
+at com.Equarz.Testcases.AdminScenarioTest.verifyproduct(AdminScenarioTest.java:32)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -56,15 +50,11 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifylog -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.Equarz.Testcases.LoginTest@34a3d150]" started-at="2023-10-26T15:12:59 IST" name="teardown" finished-at="2023-10-26T15:12:59 IST" duration-ms="229" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- teardown -->
-      </class> <!-- com.Equarz.Testcases.LoginTest -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+        </test-method> <!-- verifyproduct -->
+      </class> <!-- com.Equarz.Testcases.AdminScenarioTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>
